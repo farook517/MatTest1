@@ -1,0 +1,106 @@
+<!--
+  <mat-form-field appearance="fill">
+    <mat-label>Select UserId</mat-label>
+    <mat-select (selectionChange)="select(selectedValue)" [(ngModel)]="selectedValue" name="user">
+      <mat-option *ngFor="let user of users" [value]="user.userId">
+        {{user.userId}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <input matInput type="text" value={{userName}} />
+</mat-form-field>
+
+-->
+<!--
+  <p> Selected food: {{selectedValue}} </p>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="postData();">
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-form-label">Users List</label>
+    <div class="col-sm-10" formArrayName="items">
+       <div *ngFor="let item of checkoutForm.controls.items['controls']; let i=index" [formGroupName]="i">
+        
+        <button type="submit" class="btn btn-link" (click)="removeItem(i)">removeItem</button>
+
+        <input class="form-control" type="text" formControlName="id" id="task{{i}}">
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Select UserId</mat-label>
+          <mat-select (selectionChange)="select(selectedValue)" [(ngModel)]="selectedValue" name="user" formControlName="userID">
+            <mat-option *ngFor="let user of users" [value]="user.userId">
+              {{user.userId}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        
+         <mat-form-field>
+          <input matInput type="text" value={{userName}} formControlName="userName" />
+        </mat-form-field>
+
+       </div>
+
+    </div>
+    </div>
+    <button type="submit" class="btn btn-link" (click)="addNewItem()">Add Row</button>
+  </form>
+
+<hr>
+<br>
+<br>
+-->
+<div class="container">
+  <h3>User List </h3>
+  <form [formGroup] = "userForm">
+    <div>
+    <table>
+      <thead>
+        <tr>
+            <th>User Id</th>
+            <th>User Name</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+                           <mat-form-field appearance="fill">
+                              <mat-label>Select UserId</mat-label>
+                                 <mat-select (selectionChange)="select(selectedValue)" [(ngModel)]="selectedValue" name="user" formControlName="userId">
+                                    <mat-option *ngFor="let user of users" [value]="user.userId">
+                                      {{user.userId}}
+                                    </mat-option>
+                                 </mat-select>
+                             </mat-form-field>
+          </td>
+          <td>
+                              <mat-form-field>
+                                  <input matInput type="text" value={{userName}} formControlName="userName" />
+                              </mat-form-field>
+          </td>
+      </tr>
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-link" (click)="insert()">Add Row</button>
+    </div>
+  </form>
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th  scope="col">User Id</th>
+        <th  scope="col">User Name</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of userarray let i=index">
+        <td><span>{{item.userId}}</span></td>
+        <td><span>{{item.userName}}</span></td>
+        <td><button type="submit" class="btn btn-link" (click)="removeElement(i)">remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
